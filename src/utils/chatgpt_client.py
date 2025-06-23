@@ -1,3 +1,5 @@
+"""Module containing the client for interacting with the OpenAI API."""
+
 from config import OPENAI_API_KEY
 import os
 from openai import AsyncOpenAI

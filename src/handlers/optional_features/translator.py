@@ -1,3 +1,5 @@
+"""Handlers for the text translator feature (/translate command)."""
+
 import logging
 from telegram import Update
 from telegram.ext import CallbackContext, ConversationHandler

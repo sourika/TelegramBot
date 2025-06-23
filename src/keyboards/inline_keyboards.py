@@ -1,3 +1,5 @@
+"""Module for creating all inline keyboards used by the bot."""
+
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 PERSONALITIES_KEYS = [

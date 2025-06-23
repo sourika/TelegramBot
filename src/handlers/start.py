@@ -1,3 +1,5 @@
+"""Handler for the /start command."""
+
 import logging
 from telegram import Update
 from telegram.ext import CallbackContext, ConversationHandler

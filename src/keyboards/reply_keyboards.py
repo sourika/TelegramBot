@@ -1,3 +1,5 @@
+"""Module for creating the main reply keyboard."""
+
 from telegram import ReplyKeyboardMarkup, KeyboardButton
 
 

@@ -1,3 +1,8 @@
+"""Centralized configuration module for the application.
+
+Loads environment variables and defines project-wide constants.
+"""
+
 import os
 from pathlib import Path
 from dotenv import load_dotenv

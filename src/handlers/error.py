@@ -1,3 +1,5 @@
+"""Global error handler for the Telegram bot."""
+
 import logging
 from telegram import Update
 from telegram.ext import CallbackContext

@@ -1,3 +1,5 @@
+"""Main entry point for the Telegram bot, which ties all the handlers together."""
+
 from config import TELEGRAM_BOT_TOKEN
 
 import logging

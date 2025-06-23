@@ -1,3 +1,5 @@
+"""Module for setting up the application's logger."""
+
 import logging
 
 

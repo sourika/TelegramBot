@@ -1,3 +1,5 @@
+"""Handlers for the interactive quiz feature (/quiz command)."""
+
 import asyncio
 import logging
 

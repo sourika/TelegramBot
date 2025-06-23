@@ -1,3 +1,5 @@
+"""Handlers for the 'Chat with a Famous Personality' feature (/talk command)."""
+
 import logging
 
 import aiofiles

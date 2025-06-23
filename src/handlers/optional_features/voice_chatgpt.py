@@ -1,6 +1,4 @@
-"""
-Handlers for the "Voice ChatGPT" feature.
-"""
+"""Handlers for the voice-to-voice conversation feature (/voice command)."""
 
 import logging
 import aiofiles.os as aio_os

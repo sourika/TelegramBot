@@ -1,3 +1,5 @@
+"""Handlers for the direct ChatGPT interface feature (/talk command)."""
+
 import logging
 
 import aiofiles

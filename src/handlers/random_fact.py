@@ -1,3 +1,5 @@
+"""Handlers for the random fact feature (/random command)."""
+
 import logging
 
 import aiofiles

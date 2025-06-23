@@ -1,3 +1,5 @@
+"""Handler for gracefully finishing conversations."""
+
 import logging
 from telegram import Update
 from telegram.ext import CallbackContext, ConversationHandler
