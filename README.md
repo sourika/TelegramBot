@@ -16,16 +16,17 @@ A sophisticated, asynchronous Telegram bot built with Python, leveraging the Ope
 * **💡 Unique Random Facts:** Get interesting facts from ChatGPT. The bot keeps track of the facts it has already sent you in a session to avoid duplicates.
 * **🌐 Text Translator:** Translate text into different languages using the power of the GPT model.
 * **Stateful Conversations:** Uses `ConversationHandler` to manage user state across different features, ensuring a smooth user experience.
-* **Clean Architecture:** The project is organized into logical modules for handlers, keyboards, and utilities, making the code easy to read and maintain.
+* **Clean Architecture:** The project is organized into logical modules for handlers, keyboards, utilities, and a central config, making the code easy to read and maintain.
 
 ## 🛠️ Technologies Used
 
-* **Backend:** Python 3.10+
+* **Backend:** Python 3.11+
 * **Telegram Framework:** `python-telegram-bot` (v20+, async)
 * **AI Services:** `openai` (Official Python SDK for GPT, Whisper, and TTS)
-* **Environment Management:** `python-dotenv`
+* **Dependency Management:** `Poetry`
+* **Environment Variables:** `python-dotenv`
 * **File Handling:** `aiofiles` for asynchronous file operations
-* **Code Quality:** Configured with `.flake8`, `.gitignore`, and `pre-commit` for linting and formatting.
+* **Code Quality:** `pre-commit`, `black`, `flake8`
 
 ## 🚀 Getting Started
 
@@ -33,7 +34,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### Prerequisites
 
-* Python 3.10 or higher
+* Python 3.11 or higher
+* [Poetry](https://python-poetry.org/docs/#installation) (follow the official instructions to install it)
 * A Telegram Bot Token from [BotFather](https://t.me/BotFather)
 * An OpenAI API Key from the [OpenAI Platform](https://platform.openai.com/)
 
@@ -45,22 +47,11 @@ Follow these instructions to get a copy of the project up and running on your lo
     cd TelegramBot
     ```
 
-2.  **Create and activate a virtual environment:**
-    * On Windows:
-        ```bash
-        python -m venv .venv
-        .\.venv\Scripts\activate
-        ```
-    * On macOS/Linux:
-        ```bash
-        python3 -m venv .venv
-        source .venv/bin/activate
-        ```
-
-3.  **Install the required dependencies:**
+2.  **Install dependencies:**
     ```bash
-    pip install -r requirements.txt
+    poetry install
     ```
+    This single command will read the `pyproject.toml` file, create a dedicated virtual environment for the project, and install all the necessary dependencies specified in the `poetry.lock` file. This ensures a consistent and reproducible setup.
 
 ### Configuration
 
@@ -74,15 +65,11 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### Running the Bot
 
-1.  Navigate to the source directory:
-    ```bash
-    cd src
-    ```
+Execute the main bot script using Poetry's `run` command. This ensures the script runs within the correct virtual environment.
 
-2.  Run the main bot file:
-    ```bash
-    python bot.py
-    ```
+```bash
+    poetry run python src/bot.py
+  ```
 
 Your bot should now be running and responsive on Telegram!
 
@@ -93,19 +80,17 @@ The project is organized to separate concerns and improve maintainability:
 ```text
 TelegramBot/
 ├── .env                  # Stores environment variables (API keys)
-├── .venv/                # Virtual environment directory
 ├── images/               # Static images used by the bot
 ├── src/                  # Main source code
+│   ├── config.py           # Central configuration, loads .env and defines global constants
 │   ├── handlers/         # Logic for handling user commands and messages
-│   │   ├── optional_features/ # Handlers for more complex features
-│   │   └── ...           # Core feature handlers (start, quiz, etc.)
 │   ├── keyboards/        # Creates inline and reply keyboards for the UI
-│   ├── utils/            # Helper modules (ChatGPT client, logger, etc.)
-│   └── bot.py            # Main application entry point
+│   └── utils/            # Reusable utilities (OpenAI client, logger setup)
 ├── .gitignore            # Files to be ignored by Git
-├── pyproject.toml        # Project metadata and configuration
-├── README.md             # This file
-└── requirements.txt      # Project dependencies
+├── .pre-commit-config.yaml # Configuration for pre-commit hooks (black, flake8)
+├── poetry.lock           # Exact versions of all dependencies for reproducible builds
+├── pyproject.toml        # Project configuration, dependencies, and tool settings
+└── README.md             # This file
 
 ```
 ## 🤝 Contributing

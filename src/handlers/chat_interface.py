@@ -6,10 +6,12 @@ from telegram.ext import CallbackContext, ConversationHandler
 from utils.chatgpt_client import ChatGPTClient
 from keyboards.inline_keyboards import get_finish_keyboard
 
+from config import ROOT_DIR
+
 logger = logging.getLogger(__name__)
 chatgpt_client = ChatGPTClient()
 GPT_INTERFACE = 1
-IMAGE_PATH = "../images/ChatGPT.jpg"
+IMAGE_PATH = ROOT_DIR / "images" / "ChatGPT.jpg"
 
 
 async def start_gpt_handler(update: Update, context: CallbackContext) -> int:

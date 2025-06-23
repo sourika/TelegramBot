@@ -1,5 +1,6 @@
+from config import TELEGRAM_BOT_TOKEN
+
 import logging
-import os
 
 from telegram.ext import (
     Application,
@@ -10,7 +11,6 @@ from telegram.ext import (
     filters,
 )
 
-from utils.environment import load_environment
 from utils.logger import setup_logger
 from handlers.start import start_handler
 from handlers.finish import finish_handler
@@ -63,7 +63,6 @@ from handlers.optional_features.voice_chatgpt import (
 ) = range(10)
 
 
-load_environment()
 setup_logger("")
 
 logger = logging.getLogger(__name__)
@@ -72,10 +71,7 @@ logger.info("Environment variables loaded.")
 
 def main():
     """Main function to run the bot."""
-    token = os.getenv("TELEGRAM_BOT_TOKEN")
-    if not token:
-        logger.error("TELEGRAM_BOT_TOKEN not found. Check your environment variables.")
-        return
+    token = TELEGRAM_BOT_TOKEN
 
     application = Application.builder().token(token).build()
 

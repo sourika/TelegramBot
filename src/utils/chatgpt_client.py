@@ -1,3 +1,4 @@
+from config import OPENAI_API_KEY
 import os
 from openai import AsyncOpenAI
 import logging
@@ -9,10 +10,7 @@ logger = logging.getLogger(__name__)
 class ChatGPTClient:
     def __init__(self):
         """Initializes the client using openai.AsyncOpenAI."""
-        self.api_key = os.getenv("OPENAI_API_KEY")
-        if not self.api_key:
-            logger.critical("OPENAI_API_KEY not found!")
-            raise ValueError("OPENAI_API_KEY not found.")
+        self.api_key = OPENAI_API_KEY
 
         self.client = AsyncOpenAI(api_key=self.api_key, timeout=30.0)
         logger.info("ChatGPTClient (openai.AsyncClient) initialized.")

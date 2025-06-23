@@ -10,10 +10,12 @@ from keyboards.inline_keyboards import (
     get_talk_action_keyboard,
 )
 
+from config import ROOT_DIR
+
 logger = logging.getLogger(__name__)
 chatgpt_client = ChatGPTClient()
 CHOOSE_PERSONALITY, TALK_TO_PERSONALITY = 2, 3
-IMAGE_PATH = "../images/Famous_people.jpg"
+IMAGE_PATH = ROOT_DIR / "images" / "Famous_people.jpg"
 PERSONALITIES = {
     "Albert Einstein": (
         "You are Albert Einstein. Respond as a thoughtful, brilliant physicist. "

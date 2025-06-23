@@ -9,10 +9,12 @@ from handlers.start import start_handler
 from utils.chatgpt_client import ChatGPTClient
 from keyboards.inline_keyboards import get_topic_keyboard, get_quiz_next_keyboard
 
+from config import ROOT_DIR
+
 logger = logging.getLogger(__name__)
 chatgpt_client = ChatGPTClient()
 CHOOSE_TOPIC, ASK_QUESTION, QUIZ_NEXT = 4, 5, 6
-IMAGE_PATH = "../images/Quiz.jpg"
+IMAGE_PATH = ROOT_DIR / "images" / "Quiz.jpg"
 
 
 def parse_chatgpt_verdict(text: str) -> bool | None:
